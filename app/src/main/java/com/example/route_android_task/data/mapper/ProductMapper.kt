@@ -6,16 +6,27 @@ import com.example.route_android_task.domain.models.Dimensions
 import com.example.route_android_task.domain.models.Meta
 import com.example.route_android_task.domain.models.Product
 import com.example.route_android_task.domain.models.Review
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 object ProductMapper: Mapper<ProductDTO, Product, Unit>(){
     override fun dtoToDomain(model: ProductDTO): Product {
+        val price = model.price ?: 0.0
+        val discountPercentage = model.discountPercentage ?: 0.0
+        val discountedPrice = if (price != 0.0 && discountPercentage != 0.0) {
+            calculateDiscountedPrice(price, discountPercentage)
+        } else {
+            price
+        }
+
         return Product(
             id = model.id ?: 0,
             title = model.title.orEmpty(),
             description = model.description.orEmpty(),
             category = model.category.orEmpty(),
-            price = model.price ?: 0.0,
-            discountPercentage = model.discountPercentage ?: 0.0,
+            price = price, // Keep the original price
+            discountPercentage = discountPercentage,
+            discountedPrice = discountedPrice, // Store the discounted price
             rating = model.rating ?: 0.0,
             stock = model.stock ?: 0,
             tags = model.tags.orEmpty(),
@@ -50,6 +61,23 @@ object ProductMapper: Mapper<ProductDTO, Product, Unit>(){
             images = model.images.orEmpty(),
             thumbnail = model.thumbnail.orEmpty()
         )
+    }
+
+    private fun calculateDiscountedPrice(
+        oldPrice: Double?,
+        discountPercentage: Double?
+    ): Double {
+        if (oldPrice == null || discountPercentage == null) {
+            return 0.00 // Return default value or handle error case
+        }
+
+        // Calculate discounted price
+        val discountFactor = 1 - (discountPercentage / 100)
+        val discountedPrice = oldPrice * discountFactor
+
+        // Round to two decimal places
+        val roundedDiscountedPrice = BigDecimal(discountedPrice).setScale(2, RoundingMode.HALF_UP).toDouble()
+        return roundedDiscountedPrice
     }
     fun dtoListToDomainList(dtoList: List<ProductDTO>?): List<Product> {
         return dtoList?.map { dtoToDomain(it) } ?: emptyList()

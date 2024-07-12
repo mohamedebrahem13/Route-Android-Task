@@ -7,6 +7,7 @@ data class Product(
     val category: String,
     val price: Double,
     val discountPercentage: Double,
+    val discountedPrice: Double,
     val rating: Double,
     val stock: Int,
     val tags: List<String>,

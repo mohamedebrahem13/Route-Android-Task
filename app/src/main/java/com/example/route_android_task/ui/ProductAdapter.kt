@@ -1,13 +1,14 @@
 package com.example.route_android_task.ui
 
+import android.graphics.Paint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.route_android_task.R
 import com.example.route_android_task.databinding.ItemProductBinding
 import com.example.route_android_task.domain.models.Product
+import java.text.DecimalFormat
 
 class ProductAdapter(private val productList: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
@@ -33,16 +34,22 @@ class ProductAdapter(private val productList: List<Product>) :
                 // Bind data to the view elements
                 textViewTitle.text = product.title
                 textViewDescription.text = product.description
-                textViewPrice.text = "EGP ${product.price}" // Concatenate "EGP" with price
-                textViewDiscount.text = product.discountPercentage.toString()
-                // Example: Load product image (replace with your actual logic)
+                // Calculate old price with discount
+                textViewNewPrice.text = itemView.context.getString(R.string.price_format,product.discountedPrice.toString())
+                textViewOldPrice.text = itemView.context.getString(R.string.old_price_format, product.price.toString())
+                textViewOldPrice.paintFlags = textViewOldPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+
+                textViewReview.text = itemView.context.getString(R.string.review_format, product.rating)
                 // Load product image using Coil
                 imageViewProduct.load(product.thumbnail) {
-                    crossfade(true) // Optional - enable crossfade animation
-                    placeholder(R.drawable.place_holder) // Optional - placeholder drawable while loading
-                    error(R.drawable.place_holder) // Optional - error drawable if image fails to load
-                }                // Set favorite image visibility based on a condition (example)
+                    crossfade(true)
+                    placeholder(R.drawable.place_holder)
+                    error(R.drawable.place_holder)
+                }
             }
+
+
         }
+
     }
 }

@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.example.route_android_task.R
 import com.example.route_android_task.common.Resource
 import com.example.route_android_task.databinding.ActivityMainBinding
 import com.example.route_android_task.domain.models.Product
@@ -81,9 +80,8 @@ class MainActivity : AppCompatActivity() {
         // Optionally, you can also log the size of the products list
         Log.d("Product", "Total Products: ${products.size}")
 
-        // Update UI with the fetched products
-        // Update UI with the fetched products
         val adapter = ProductAdapter(products)
+
         binding.recyclerView.adapter = adapter
     }
 

@@ -1,8 +1,6 @@
 package com.example.route_android_task.di
 
 import com.example.route_android_task.data.repository.remote.ProductApi
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

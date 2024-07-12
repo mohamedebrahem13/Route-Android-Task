@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Route-Android-Task</string>
+    <string name="price_format">EGP %.2f</string>
+
 </resources>

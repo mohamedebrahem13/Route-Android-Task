@@ -10,25 +10,34 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.route_android_task.R
 import com.example.route_android_task.common.Resource
+import com.example.route_android_task.databinding.ActivityMainBinding
 import com.example.route_android_task.domain.models.Product
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val viewModel: ProductViewModel by viewModels()
+    private lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+
+        // Initialize ViewBinding
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Apply window insets to the main layout
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        observeProductState()
 
+        observeProductState()
     }
+
     private fun observeProductState() {
         lifecycleScope.launch {
             viewModel.products.collect { resource ->
@@ -73,6 +82,9 @@ class MainActivity : AppCompatActivity() {
         Log.d("Product", "Total Products: ${products.size}")
 
         // Update UI with the fetched products
+        // Update UI with the fetched products
+        val adapter = ProductAdapter(products)
+        binding.recyclerView.adapter = adapter
     }
 
 

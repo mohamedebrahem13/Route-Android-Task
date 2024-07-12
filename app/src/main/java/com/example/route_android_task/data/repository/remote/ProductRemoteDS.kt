@@ -6,6 +6,7 @@ import com.example.route_android_task.domain.repository.remote.IProductRemoteDS
 class ProductRemoteDS (private val productApi: ProductApi): IProductRemoteDS {
 
     override suspend fun getProducts(): List<ProductDTO> {
-        return productApi.getProducts()
+        val productsResponse = productApi.getProducts()
+        return productsResponse.products
     }
 }

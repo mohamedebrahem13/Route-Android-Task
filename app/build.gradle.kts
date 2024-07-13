@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.monitor)
 
     // Unit Test
     testImplementation(libs.junit)
@@ -61,6 +62,8 @@ dependencies {
     testImplementation(libs.mockito.kotlin)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.mockito.inline)
+    // Android Test
+    androidTestImplementation(libs.androidx.junit)
 
     // Dagger Hilt
     implementation(libs.dagger.hilt.android)

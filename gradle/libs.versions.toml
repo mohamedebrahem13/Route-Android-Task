@@ -6,6 +6,7 @@ junit = "4.13.2"
 appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.0"
+junitVersion = "1.2.1"
 constraintlayout = "2.1.4"
 fragment-ktx = "1.8.1"
 hilt = "2.51"
@@ -18,9 +19,11 @@ mockk = "1.12.4"
 mockitoKotlin = "5.3.1"
 kotlinxCoroutinesTest = "1.7.3"
 coil = "2.6.0"
+monitor = "1.7.1"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
@@ -39,6 +42,7 @@ okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhtt
 logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+androidx-monitor = { group = "androidx.test", name = "monitor", version.ref = "monitor" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

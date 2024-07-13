@@ -5,5 +5,126 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <!--region TextView -->
+    <style name="TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textAppearance">@style/Font</item>
+        <item name="fontStyle">normal</item>
+    </style>
+
+
+    <style name="TextView.Medium" parent="TextView">
+        <item name="android:textAppearance">@style/Font.Medium</item>
+    </style>
+
+    <style name="TextView.Regular_12" parent="TextView">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAppearance">@style/Font.Regular</item>
+    </style>
+
+    <style name="TextView.Regular_11" parent="TextView">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/color_with_30_opacity</item>
+        <item name="android:textAppearance">@style/Font.Regular</item>
+    </style>
+    <style name="TextView.Regular" parent="TextView">
+        <item name="android:textAppearance">@style/Font.Regular</item>
+    </style>
+
+    <style name="TextView.light" parent="TextView">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAppearance">@style/Font.light</item>
+    </style>
+
+    <style name="TextView.Bold" parent="TextView">
+        <item name="android:textAppearance">@style/Font.Bold</item>
+    </style>
+
+    <style name="TextView.Black" parent="TextView">
+        <item name="android:textAppearance">@style/Font.black</item>
+    </style>
+
+    <style name="TextView.SemiBold" parent="TextView">
+        <item name="android:textAppearance">@style/Font.SemiBold</item>
+    </style>
+
+    <style name="TextView.Thin" parent="TextView">
+        <item name="android:textAppearance">@style/Font.Thin</item>
+    </style>
+
     <style name="Theme.RouteAndroidTask" parent="Base.Theme.RouteAndroidTask" />
+    <!-- Font styles -->
+    <style name="Font" parent="@android:style/TextAppearance" />
+
+    <style name="Font.Bold">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="Font.Medium">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="Font.Regular">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
+    <style name="Font.SemiBold">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+    </style>
+
+    <style name="Font.Thin">
+        <item name="android:fontFamily">@font/poppins_thin</item>
+    </style>
+    <style name="Font.light">
+        <item name="android:fontFamily">@font/poppins_light</item>
+    </style>
+    <style name="Font.black">
+        <item name="android:fontFamily">@font/poppins_black</item>
+    </style>
+
+    <!--region TextInputLayout -->
+    <style name="TextInputLayout.OutlinedBox" parent="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="boxCornerRadiusBottomEnd">22dp</item>
+        <item name="boxCornerRadiusBottomStart">22dp</item>
+        <item name="boxCornerRadiusTopEnd">22dp</item>
+        <item name="boxBackgroundColor">@color/semi_transparent_white</item>
+        <item name="boxCornerRadiusTopStart">22dp</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="startIconTint">@color/bg_color</item>
+        <item name="hintTextAppearance">@style/Font.SemiBold</item>
+        <item name="errorEnabled">true</item>
+    </style>
+
+    <!-- Search Input Style -->
+    <style name="TextInputLayout.Name" parent="TextInputLayout.OutlinedBox">
+        <item name="startIconDrawable">@drawable/icon_search</item>
+    </style>
+
+    <!--region TextInputEditText-->
+    <style name="TextInputEditText.OutlinedBox" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textColorHint">@color/color_with_30_opacity</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textAppearance">@style/Font.SemiBold</item>
+    </style>
+
+    <style name="TextInputEditText.Name" parent="TextInputEditText.OutlinedBox">
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:imeOptions">actionNext</item>
+    </style>
+
+
+
 </resources>

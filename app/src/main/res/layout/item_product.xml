@@ -4,18 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:elevation="4dp"
+    android:background="@drawable/card_view_border"
     app:cardCornerRadius="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="@drawable/card_view_border"
         android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/imageViewProduct"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:contentDescription="@string/imageviewproduct"
+            android:contentDescription="@string/image_view_product"
             android:scaleType="centerCrop"
             android:src="@drawable/place_holder"
             app:layout_constraintDimensionRatio="1.8"
@@ -30,8 +31,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            style="@style/TextView.Regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
             android:layout_marginEnd="8dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textSize="14sp"
+            style="@style/TextView.Regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textSize="14sp"
+            style="@style/TextView.Regular"
             app:layout_constraintEnd_toStartOf="@+id/textViewOldPrice"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -64,14 +64,14 @@
 
         <TextView
             android:id="@+id/textViewOldPrice"
+            style="@style/TextView.Regular_11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textSize="14sp"
+            android:layout_marginStart="22dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewNewPrice"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textViewNewPrice"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
+            app:layout_constraintTop_toTopOf="@+id/textViewNewPrice" />
 
         <TextView
             android:id="@+id/textViewReview"
@@ -80,29 +80,27 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:textSize="14sp"
+            style="@style/TextView.Regular_12"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewOldPrice" />
 
         <ImageView
             android:id="@+id/star"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:src="@drawable/star"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewReview"
             app:layout_constraintStart_toEndOf="@+id/textViewReview"
-            app:layout_constraintTop_toBottomOf="@+id/textViewOldPrice">
+            app:layout_constraintTop_toBottomOf="@+id/textViewNewPrice">
 
         </ImageView>
 
         <ImageView
             android:id="@+id/icon_plus"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/icon_plus_circle"
@@ -112,8 +110,8 @@
 
         <ImageView
             android:id="@+id/imageViewFavorite"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:src="@drawable/fav"
             app:layout_constraintEnd_toEndOf="parent"

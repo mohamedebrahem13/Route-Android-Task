@@ -5,7 +5,13 @@
     <color name="semi_transparent_white">#B2FFFFFF</color>
     <color name="color_with_30_opacity">#4D004182</color>
     <color name="text_color">#06004F</color>
+    <color name="search">#004182</color>
+    <color name="hint_text_color">#B306004F</color>
+
     <color name="bg_color">#B3004182</color>
+    <color name="text_search_color">#06004F99</color>
+
+
 
 
 

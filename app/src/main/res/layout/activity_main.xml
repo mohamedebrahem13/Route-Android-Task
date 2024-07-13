@@ -9,18 +9,19 @@
 
     <!-- ImageView for the logo image -->
     <ImageView
-        android:id="@+id/logoImage"
+        android:id="@+id/route_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="@string/route_logo"
         android:src="@drawable/route_logo"
-        app:layout_constraintBottom_toTopOf="@+id/input_search_number"
+        app:layout_constraintBottom_toTopOf="@+id/input_search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_search_number"
+        android:id="@+id/input_search"
         style="@style/TextInputLayout.Name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -28,16 +29,14 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toTopOf="@id/recyclerView"
-        app:layout_constraintEnd_toStartOf="@id/customImageView"
+        app:layout_constraintEnd_toStartOf="@id/icon_shopping_cart"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoImage">
+        app:layout_constraintTop_toBottomOf="@id/route_logo">
 
         <!-- SearchView with custom border -->
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/searchView"
-            style="@style/TextInputLayout.Name"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/search"
+            style="@style/TextInputEditText.Name"
             android:hint="@string/search_hint"
             android:minHeight="48dp" />
 
@@ -45,18 +44,19 @@
 
 
     <!-- ImageView at the right side -->
-
-    <!-- RecyclerView -->
     <ImageView
-        android:id="@+id/customImageView"
+        android:id="@+id/icon_shopping_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/icon_shopping_cart"
         android:src="@drawable/icon_shopping_cart"
-        app:layout_constraintBottom_toBottomOf="@id/input_search_number"
+        app:layout_constraintBottom_toBottomOf="@id/input_search"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/input_search_number"
+        app:layout_constraintTop_toTopOf="@id/input_search"
         app:layout_constraintVertical_bias="0.285" />
+
+    <!-- RecyclerView -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -67,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_search_number"
+        app:layout_constraintTop_toBottomOf="@id/input_search"
         app:spanCount="2"
         tools:listitem="@layout/item_product" />
 

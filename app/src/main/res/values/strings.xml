@@ -5,6 +5,8 @@
     <string name="review_format">Review: (%.1f)</string>
     <string name="image_view_product">imageViewProduct</string>
     <string name="search_hint">what do you search for?</string>
+    <string name="icon_shopping_cart">icon shopping cart</string>
+    <string name="route_logo">route logo</string>
 
 
 </resources>

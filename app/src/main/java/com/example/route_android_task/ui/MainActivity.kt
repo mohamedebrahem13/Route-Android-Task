@@ -2,6 +2,7 @@ package com.example.route_android_task.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -14,9 +15,11 @@ import com.example.route_android_task.domain.models.Product
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ProductAdapter.ItemClickListener {
     private val viewModel: ProductViewModel by viewModels()
     private lateinit var binding: ActivityMainBinding
+    private lateinit var adapter: ProductAdapter
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,29 +72,31 @@ class MainActivity : AppCompatActivity() {
 
     private fun hideLoading() {
         // Hide loading indicator or update UI accordingly
+        Log.d("Product", "hide_loading")
+
     }
 
     private fun displayProducts(products: List<Product>) {
-        for (product in products) {
-            Log.d("Product", "ID: ${product.id}, Title: ${product.title}, Price: ${product.price}")
-            // Add more fields as needed
+        // Initialize the adapter if not already initialized
+        if (!::adapter.isInitialized) {
+            adapter = ProductAdapter(products, this)
+            binding.recyclerView.adapter = adapter
+        } else {
+            // Update the list of products using DiffUtil
+            adapter.updateProducts(products)
         }
-
-        // Optionally, you can also log the size of the products list
-        Log.d("Product", "Total Products: ${products.size}")
-
-        val adapter = ProductAdapter(products)
-
-        binding.recyclerView.adapter = adapter
     }
 
 
     private fun showError(message: String) {
         // Show error message to the user
         Log.d("Product", "error$message")
-
-    }
+        Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
 }
+
+    override fun onItemClick(item: Product) {
+        val message = "Product Rating: ${item.rating}"
+        Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()}}
 
 
 

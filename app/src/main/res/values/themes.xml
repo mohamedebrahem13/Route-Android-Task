@@ -98,7 +98,7 @@
         <item name="boxStrokeWidth">1dp</item>
         <item name="boxStrokeWidthFocused">1dp</item>
         <item name="hintEnabled">false</item>
-        <item name="boxStrokeColor">@color/search</item>
+        <item name="boxStrokeColor">@color/border_color_selector</item>
         <item name="startIconTint">@color/search</item>
         <item name="hintTextAppearance">@style/Font.SemiBold</item>
         <item name="errorEnabled">true</item>

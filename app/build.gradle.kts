@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.dagger.hilt)
     id("kotlin-parcelize")
-    id("androidx.navigation.safeargs.kotlin")
     kotlin("kapt")
 
 
@@ -15,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.route_android_task"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -31,6 +30,9 @@ android {
                 "proguard-rules.pro"
             )
         }
+    }
+    buildFeatures {
+        viewBinding = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -80,7 +82,4 @@ dependencies {
     // Coil
     implementation(libs.coil.kt)
 
-    // Navigation
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
 }

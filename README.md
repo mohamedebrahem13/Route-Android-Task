@@ -41,6 +41,6 @@
     - **Usage**: Manages feature branches, release branches, hotfix branches, and the main branch efficiently.    
 
 ## Screenshots
-![Screenshot 1](screenshots/Screenshot_20240713_221010.png)
+![Screenshot 1](screenshots/Screenshot_route.png)
 *Description of screenshot 1.*
 products screen 

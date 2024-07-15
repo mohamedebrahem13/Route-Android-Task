@@ -93,7 +93,7 @@
         <item name="boxCornerRadiusBottomStart">30dp</item>
         <item name="android:layout_marginHorizontal">16dp</item>
         <item name="boxCornerRadiusTopEnd">30dp</item>
-        <item name="boxBackgroundColor">@color/semi_transparent_white</item>
+        <item name="boxBackgroundColor">@android:color/transparent</item>
         <item name="boxCornerRadiusTopStart">30dp</item>
         <item name="boxStrokeWidth">1dp</item>
         <item name="boxStrokeWidthFocused">1dp</item>
@@ -126,6 +126,15 @@
         <item name="android:imeOptions">actionNext</item>
     </style>
 
+    <!--region CardView-->
+    <style name="MyCardViewBorderStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@android:color/transparent</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/color_with_30_opacity</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cardCornerRadius">15dp</item>
+
+    </style>
 
 
 </resources>
